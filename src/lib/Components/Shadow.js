@@ -18,6 +18,8 @@
  * @property {number} blur A number representing the Shadows blur radius
  * @property {GameObject} parent A reference to the Shadows parent
  */
+import Component from "../Class/Component.js";
+import JSGameEngine from "../Class/JSGameEngine";
 
 export default class Shadow extends Component {
     constructor(options){

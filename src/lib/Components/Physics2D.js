@@ -15,6 +15,12 @@
  * @constructor
  * @param {options} options An object containing construct options
  */
+import Vector2 from "./Vector2.js";
+import Component from "../Class/Component.js";
+
+
+
+
 export default class Physics2D extends Component {
     constructor (options) {
         super(options);
