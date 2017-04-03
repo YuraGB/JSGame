@@ -15,7 +15,7 @@
  * @constructor
  * @param {options} options An object containing construct options
  */
-export default class Phisics2D extends Component {
+export default class Physics2D extends Component {
     constructor (options) {
         super(options);
         this.__extend (Component, this, options);
