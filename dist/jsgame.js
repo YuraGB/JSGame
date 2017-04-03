@@ -1034,13 +1034,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Phisics2D = function (_Component) {
-    _inherits(Phisics2D, _Component);
+var Physics2D = function (_Component) {
+    _inherits(Physics2D, _Component);
 
-    function Phisics2D(options) {
-        _classCallCheck(this, Phisics2D);
+    function Physics2D(options) {
+        _classCallCheck(this, Physics2D);
 
-        var _this = _possibleConstructorReturn(this, (Phisics2D.__proto__ || Object.getPrototypeOf(Phisics2D)).call(this, options));
+        var _this = _possibleConstructorReturn(this, (Physics2D.__proto__ || Object.getPrototypeOf(Physics2D)).call(this, options));
 
         _this.__extend(Component, _this, options);
         _this.gravity = new Vector2({ y: 9.81, parent: _this });
@@ -1049,7 +1049,7 @@ var Phisics2D = function (_Component) {
         return _this;
     }
 
-    _createClass(Phisics2D, [{
+    _createClass(Physics2D, [{
         key: "fixedUpdate",
         value: function fixedUpdate(timestamp) {
             this.addForse(this.gravity.multiply(timestamp * 10));
@@ -1065,10 +1065,10 @@ var Phisics2D = function (_Component) {
         }
     }]);
 
-    return Phisics2D;
+    return Physics2D;
 }(Component);
 
-exports.default = Phisics2D;
+exports.default = Physics2D;
 
 },{}],9:[function(require,module,exports){
 /**
