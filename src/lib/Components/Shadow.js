@@ -21,7 +21,7 @@
 
 export default class Shadow extends Component {
     constructor(options){
-        super();
+        super(options);
         this.__extend(Component, this, options);
         this.color = new Color();
         this.__construct(this, options);

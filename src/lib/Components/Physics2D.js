@@ -17,7 +17,7 @@
  */
 export default class Phisics2D extends Component {
     constructor (options) {
-        super();
+        super(options);
         this.__extend (Component, this, options);
         this.gravity = new Vector2 ({y : 9.81, parent : this});
         this.velocity = new Vector2 ({parent : this});
