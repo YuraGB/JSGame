@@ -22,7 +22,7 @@ import Component from "../Class/Component.js";
 import JSGameEngine from "../Class/JSGameEngine";
 import Color from "./Color.js";
 
-export default class Shadow extends Component {
+export default class khadow extends Component {
     constructor(options){
         super(options);
         this.__extend(Component, this, options);
