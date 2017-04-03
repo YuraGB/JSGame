@@ -1040,7 +1040,7 @@ var Phisics2D = function (_Component) {
     function Phisics2D(options) {
         _classCallCheck(this, Phisics2D);
 
-        var _this = _possibleConstructorReturn(this, (Phisics2D.__proto__ || Object.getPrototypeOf(Phisics2D)).call(this));
+        var _this = _possibleConstructorReturn(this, (Phisics2D.__proto__ || Object.getPrototypeOf(Phisics2D)).call(this, options));
 
         _this.__extend(Component, _this, options);
         _this.gravity = new Vector2({ y: 9.81, parent: _this });
@@ -1110,7 +1110,7 @@ var Shadow = function (_Component) {
     function Shadow(options) {
         _classCallCheck(this, Shadow);
 
-        var _this = _possibleConstructorReturn(this, (Shadow.__proto__ || Object.getPrototypeOf(Shadow)).call(this));
+        var _this = _possibleConstructorReturn(this, (Shadow.__proto__ || Object.getPrototypeOf(Shadow)).call(this, options));
 
         _this.__extend(Component, _this, options);
         _this.color = new Color();
