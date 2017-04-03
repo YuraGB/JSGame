@@ -20,6 +20,7 @@
  */
 import Component from "../Class/Component.js";
 import JSGameEngine from "../Class/JSGameEngine";
+import Color from "./Color.js";
 
 export default class Shadow extends Component {
     constructor(options){
