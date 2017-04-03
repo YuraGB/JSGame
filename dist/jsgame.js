@@ -1028,6 +1028,16 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _Vector = require("./Vector2.js");
+
+var _Vector2 = _interopRequireDefault(_Vector);
+
+var _Component2 = require("../Class/Component.js");
+
+var _Component3 = _interopRequireDefault(_Component2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -1042,9 +1052,9 @@ var Physics2D = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Physics2D.__proto__ || Object.getPrototypeOf(Physics2D)).call(this, options));
 
-        _this.__extend(Component, _this, options);
-        _this.gravity = new Vector2({ y: 9.81, parent: _this });
-        _this.velocity = new Vector2({ parent: _this });
+        _this.__extend(_Component3.default, _this, options);
+        _this.gravity = new _Vector2.default({ y: 9.81, parent: _this });
+        _this.velocity = new _Vector2.default({ parent: _this });
         _this.__construct(_this, options);
         return _this;
     }
@@ -1057,7 +1067,7 @@ var Physics2D = function (_Component) {
     }, {
         key: "addForse",
         value: function addForse(force) {
-            if (!(force instanceof Vector2)) {
+            if (!(force instanceof _Vector2.default)) {
                 throw TypeError("Force must be an instance of Vector2");
             }
             this.velocity.add(force);
@@ -1066,11 +1076,11 @@ var Physics2D = function (_Component) {
     }]);
 
     return Physics2D;
-}(Component);
+}(_Component3.default);
 
 exports.default = Physics2D;
 
-},{}],9:[function(require,module,exports){
+},{"../Class/Component.js":2,"./Vector2.js":11}],9:[function(require,module,exports){
 /**
  * @file JSGame Shadow Component. Adds a shadow to the parent GameObject
  * @package jsgame
@@ -1098,6 +1108,20 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _Component2 = require("../Class/Component.js");
+
+var _Component3 = _interopRequireDefault(_Component2);
+
+var _JSGameEngine = require("../Class/JSGameEngine");
+
+var _JSGameEngine2 = _interopRequireDefault(_JSGameEngine);
+
+var _Color = require("./Color.js");
+
+var _Color2 = _interopRequireDefault(_Color);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -1112,8 +1136,8 @@ var Shadow = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Shadow.__proto__ || Object.getPrototypeOf(Shadow)).call(this, options));
 
-        _this.__extend(Component, _this, options);
-        _this.color = new Color();
+        _this.__extend(_Component3.default, _this, options);
+        _this.color = new _Color2.default();
         _this.__construct(_this, options);
         return _this;
     }
@@ -1128,11 +1152,11 @@ var Shadow = function (_Component) {
     }]);
 
     return Shadow;
-}(Component);
+}(_Component3.default);
 
 exports.default = Shadow;
 
-},{}],10:[function(require,module,exports){
+},{"../Class/Component.js":2,"../Class/JSGameEngine":5,"./Color.js":6}],10:[function(require,module,exports){
 /**
  * @file JSGame Transform Component.
  * @package jsgame
