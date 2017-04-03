@@ -15,25 +15,22 @@
  * @constructor
  * @param {options} options An object containing construct options
  */
-function Physics2D(options){
-    var self = this;
-    this.__extend(Component, this, options);
-    this.gravity = new Vector2({y: 9.81, parent: this});
-    this.velocity = new Vector2({parent: this});
-    this.fixedUpdate = function(timestamp){
-        return self.addForce(self.gravity.multiply(timestamp * 10));
+export default class Phisics2D extends Component {
+    constructor (options) {
+        super();
+        this.__extend (Component, this, options);
+        this.gravity = new Vector2 ({y : 9.81, parent : this});
+        this.velocity = new Vector2 ({parent : this});
+        this.__construct(this, options);
     }
-    this.addForce = function(force){
+    fixedUpdate (timestamp) {
+        this.addForse (this.gravity.multiply (timestamp * 10));
+    }
+    addForse (force) {
         if(!(force instanceof Vector2)){
-            throw TypeError("Force must be an instance of Vector2");
+            throw TypeError ("Force must be an instance of Vector2");
         }
-        self.velocity.add(force);
-        return self.velocity;
+        this.velocity.add(force);
+        return this.velocity;
     }
-    this.__construct(this, options);
 }
-
-Physics2D.prototype = new Component();
-Physics2D.prototype.constructor = Physics2D;
-
-module.exports = Physics2D;

@@ -1022,28 +1022,53 @@ module.exports = Input;
  * @param {options} options An object containing construct options
  */
 
-function Physics2D(options) {
-    var self = this;
-    this.__extend(Component, this, options);
-    this.gravity = new Vector2({ y: 9.81, parent: this });
-    this.velocity = new Vector2({ parent: this });
-    this.fixedUpdate = function (timestamp) {
-        return self.addForce(self.gravity.multiply(timestamp * 10));
-    };
-    this.addForce = function (force) {
-        if (!(force instanceof Vector2)) {
-            throw TypeError("Force must be an instance of Vector2");
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Phisics2D = function (_Component) {
+    _inherits(Phisics2D, _Component);
+
+    function Phisics2D(options) {
+        _classCallCheck(this, Phisics2D);
+
+        var _this = _possibleConstructorReturn(this, (Phisics2D.__proto__ || Object.getPrototypeOf(Phisics2D)).call(this));
+
+        _this.__extend(Component, _this, options);
+        _this.gravity = new Vector2({ y: 9.81, parent: _this });
+        _this.velocity = new Vector2({ parent: _this });
+        _this.__construct(_this, options);
+        return _this;
+    }
+
+    _createClass(Phisics2D, [{
+        key: "fixedUpdate",
+        value: function fixedUpdate(timestamp) {
+            this.addForse(this.gravity.multiply(timestamp * 10));
         }
-        self.velocity.add(force);
-        return self.velocity;
-    };
-    this.__construct(this, options);
-}
+    }, {
+        key: "addForse",
+        value: function addForse(force) {
+            if (!(force instanceof Vector2)) {
+                throw TypeError("Force must be an instance of Vector2");
+            }
+            this.velocity.add(force);
+            return this.velocity;
+        }
+    }]);
 
-Physics2D.prototype = new Component();
-Physics2D.prototype.constructor = Physics2D;
+    return Phisics2D;
+}(Component);
 
-module.exports = Physics2D;
+exports.default = Phisics2D;
 
 },{}],9:[function(require,module,exports){
 /**
@@ -1067,23 +1092,45 @@ module.exports = Physics2D;
  * @property {GameObject} parent A reference to the Shadows parent
  */
 
-function Shadow(options) {
-  var self = this;
-  this.__extend(Component, this, options);
-  this.color = new Color();
-  this.blur = 10;
-  this.__update = function (JSGameEngine) {
-    var ctx = JSGameEngine.ctx;
-    ctx.shadowBlur = self.blur;
-    ctx.shadowColor = self.color.toString();
-  };
-  this.__construct(this, options);
-}
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-Shadow.prototype = new Component();
-Shadow.prototype.constructor = Shadow;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-module.exports = Shadow;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Shadow = function (_Component) {
+    _inherits(Shadow, _Component);
+
+    function Shadow(options) {
+        _classCallCheck(this, Shadow);
+
+        var _this = _possibleConstructorReturn(this, (Shadow.__proto__ || Object.getPrototypeOf(Shadow)).call(this));
+
+        _this.__extend(Component, _this, options);
+        _this.color = new Color();
+        _this.__construct(_this, options);
+        return _this;
+    }
+
+    _createClass(Shadow, [{
+        key: "__update",
+        value: function __update(JSGameEngine) {
+            var ctx = JSGameEngine.ctx;
+            ctx.shadowBlur = this.blur;
+            ctx.shadowColor = this.color.toString();
+        }
+    }]);
+
+    return Shadow;
+}(Component);
+
+exports.default = Shadow;
 
 },{}],10:[function(require,module,exports){
 /**

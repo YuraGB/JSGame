@@ -18,20 +18,17 @@
  * @property {number} blur A number representing the Shadows blur radius
  * @property {GameObject} parent A reference to the Shadows parent
  */
-function Shadow(options){
-    var self = this;
-    this.__extend(Component, this, options);
-    this.color = new Color();
-    this.blur = 10;
-    this.__update = function(JSGameEngine){
-        var ctx = JSGameEngine.ctx;
-        ctx.shadowBlur = self.blur;
-        ctx.shadowColor = self.color.toString();
+
+export default class Shadow extends Component {
+    constructor(options){
+        super();
+        this.__extend(Component, this, options);
+        this.color = new Color();
+        this.__construct(this, options);
     }
-    this.__construct(this, options);
+    __update (JSGameEngine) {
+        const ctx = JSGameEngine.ctx;
+        ctx.shadowBlur = this.blur;
+        ctx.shadowColor = this.color.toString();
+    }
 }
-
-Shadow.prototype = new Component();
-Shadow.prototype.constructor = Shadow;
-
-module.exports = Shadow;
